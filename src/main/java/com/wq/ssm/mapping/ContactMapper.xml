@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wq.ssm.dao.ContactDao">
+	<resultMap type="com.wq.ssm.entity.Contact" id="BaseResultMap">
+		<id jdbcType="INTEGER" property="id" column="id"/>
+		<id jdbcType="INTEGER" property="phone" column="phone"/>
+		<result jdbcType="VARCHAR" property="tel" column="tel"/>
+		<result jdbcType="VARCHAR" property="email" column="email"/>
+		<result jdbcType="VARCHAR" property="address" column="address"/>
+	</resultMap>
+	
+	<sql id="Base_Column_List"> id,phone,tel,email,address</sql>
+	<!-- 查询所有person -->
+	<select id="search" resultMap="BaseResultMap">
+		select 
+	<include refid="Base_Column_List"/>
+		from contact
+	</select>
+</mapper>
